@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float _movementSpeed;
+    public float maxSpeed;
+    public float movementSpeed;
     [SerializeField] float _rotationSpeed;
     [SerializeField] Transform _cameraTransform;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        movementSpeed = maxSpeed;
     }
 
     private void Update()
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour
         float v = Input.GetAxis("Vertical");
 
         Vector3 movementDir = new Vector3(h, 0, v);
-        float magnitude = Mathf.Clamp01(movementDir.magnitude) * _movementSpeed;
+        float magnitude = Mathf.Clamp01(movementDir.magnitude) * movementSpeed;
         movementDir = Quaternion.AngleAxis(_cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDir;
         movementDir.Normalize();
         _characterController.SimpleMove(movementDir * magnitude);
