@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class opendoor : MonoBehaviour
+public class OpenDoor : MonoBehaviour
 {
-    public Animator _animation;
+    public Animator anim;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Humano"))
         {
-            _animation.SetBool("pl",true);
+            anim.SetBool("pl",true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Humano"))
         {
-            _animation.SetBool("pl", false);
+            anim.SetBool("pl", false);
         }
     }
 }
