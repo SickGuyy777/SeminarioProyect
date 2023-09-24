@@ -15,15 +15,7 @@ public class CanvasController : MonoBehaviour
 
     private void Update()
     {
-        if (onManagment)
-        {
-            _playerPr.movementSpeed = 0f;
-            Cursor.lockState = CursorLockMode.Confined;
-        }
-        else
-        {
-            _playerPr.movementSpeed = _playerPr.maxSpeed;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        if (onManagment) _playerPr.movementSpeed = 0f;
+        else _playerPr.movementSpeed = _playerPr.maxSpeed;
     }
 }

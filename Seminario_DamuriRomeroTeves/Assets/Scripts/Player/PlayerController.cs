@@ -39,10 +39,4 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
         }
     }
-
-    private void OnApplicationFocus(bool focus)
-    {
-        if (focus) Cursor.lockState = CursorLockMode.Locked;
-        else Cursor.lockState = CursorLockMode.None;
-    }
 }
