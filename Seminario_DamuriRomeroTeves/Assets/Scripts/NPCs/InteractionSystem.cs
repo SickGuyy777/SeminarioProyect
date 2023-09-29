@@ -17,6 +17,10 @@ public class InteractionSystem : MonoBehaviour
     {
         _playerPr = PlayerController.FindObjectOfType<PlayerController>();
         _cnvController = CanvasController.FindObjectOfType<CanvasController>();
+
+        _cnvController.onManagment = false;
+        _interactuableCanv.enabled = false;
+        _managmentMenu.SetActive(false);
     }
 
     private void Update()
@@ -54,17 +58,13 @@ public class InteractionSystem : MonoBehaviour
                 _cnvController.onManagment = true;
                 _managmentMenu.SetActive(true);
             }
-            else if (Input.GetKeyDown(KeyCode.Escape) && _cnvController.onManagment == true)
+            else if (Input.GetKeyDown(KeyCode.Escape))
             {
                 _cnvController.onManagment = false;
                 _managmentMenu.SetActive(false);
             }
         }
         else
-        {
-            _cnvController.onManagment = false;
             _interactuableCanv.enabled = false;
-            _managmentMenu.SetActive(false);
-        }
     }
 }
