@@ -6,6 +6,7 @@ using TMPro;
 public class DialoguesSystem : MonoBehaviour
 {
     public TextMeshProUGUI textComp;
+    public TextMeshProUGUI passText;
     public string[] lines;
     public float textSpeed;
 

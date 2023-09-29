@@ -6,6 +6,9 @@ using TMPro;
 
 public class TimeSystem : MonoBehaviour
 {
+    [Header("NPCs")]
+    [SerializeField] GameObject _mafiaBoss;
+
     public TMP_Text hourText;
     public TMP_Text dayText;
     public TMP_Text monthText;
@@ -43,7 +46,10 @@ public class TimeSystem : MonoBehaviour
         }
     }
 
-    public void ChangeHour() { currentHour++; }
+    public void ChangeHour() 
+    {
+        currentHour++;
+    }
     public void ChangeDay()
     {
         currentDay++;

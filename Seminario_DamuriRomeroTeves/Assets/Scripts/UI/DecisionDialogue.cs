@@ -47,6 +47,7 @@ public class DecisionDialogue: DialoguesSystem
 
     public void Help()
     {
+        passText.text = "ESC TO EXIT>>>";
         DeactivateButtons(false);
         _noMoreText = true;
         _decisionIndex = 0;
@@ -55,6 +56,7 @@ public class DecisionDialogue: DialoguesSystem
 
     public void NotHelp()
     {
+        passText.text = "ESC TO EXIT>>>";
         DeactivateButtons(false);
         _noMoreText = true;
         _decisionIndex = 1;
