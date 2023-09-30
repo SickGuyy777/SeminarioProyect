@@ -23,9 +23,7 @@ public class DialoguesSystem : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if(textComp.text == lines[_index])
-            {
                 NextLine();
-            }
             else
             {
                 StopAllCoroutines();

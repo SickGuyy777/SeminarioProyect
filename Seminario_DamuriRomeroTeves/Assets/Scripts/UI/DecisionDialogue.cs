@@ -7,8 +7,8 @@ public class DecisionDialogue: DialoguesSystem
 {
     [SerializeField] bool _noMoreText;
     public string[] decisionLines;
-
     public GameObject[] buttons;
+    public EventsManager eventManager;
 
     int _decisionIndex;
 
@@ -29,9 +29,7 @@ public class DecisionDialogue: DialoguesSystem
             if (Input.GetMouseButtonDown(0))
             {
                 if (textComp.text == lines[_index])
-                {
                     NextLine();
-                }
                 else
                 {
                     StopAllCoroutines();
@@ -40,7 +38,6 @@ public class DecisionDialogue: DialoguesSystem
             }
 
             if (_index == lines.Length - 1) DeactivateButtons(true);
-
             else DeactivateButtons(false);
         }
     }
@@ -50,6 +47,7 @@ public class DecisionDialogue: DialoguesSystem
         passText.text = "ESC TO EXIT>>>";
         DeactivateButtons(false);
         _noMoreText = true;
+        eventManager.tortureEvent = true;
         _decisionIndex = 0;
         textComp.text = decisionLines[_decisionIndex];
     }
@@ -59,6 +57,7 @@ public class DecisionDialogue: DialoguesSystem
         passText.text = "ESC TO EXIT>>>";
         DeactivateButtons(false);
         _noMoreText = true;
+        eventManager.tortureEvent = false;
         _decisionIndex = 1;
         textComp.text = decisionLines[_decisionIndex];
     }
