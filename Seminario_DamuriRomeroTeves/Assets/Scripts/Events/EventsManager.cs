@@ -7,6 +7,7 @@ public class EventsManager : MonoBehaviour
     [SerializeField] protected TimeSystem _timeSys;
     [SerializeField] GameObject _mafiaBoss;
     [SerializeField] GameObject _tortureSpawnPoint;
+    [SerializeField] GameObject initialSpawnPoint;
 
     public bool tortureEvent;
 
@@ -23,6 +24,12 @@ public class EventsManager : MonoBehaviour
         {
             _mafiaBoss.transform.position = _tortureSpawnPoint.transform.position;
             _mafiaBoss.SetActive(true);
+        }
+        else if(_timeSys.currentHour == 0)
+        {
+            _mafiaBoss.transform.position = initialSpawnPoint.transform.position;
+            tortureEvent = false;
+            _mafiaBoss.SetActive(false);
         }
         else
             _mafiaBoss.SetActive(false);
