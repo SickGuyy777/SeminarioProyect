@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed;
     [SerializeField] float _rotationSpeed;
     [SerializeField] Transform _cameraTransform;
-
+    [SerializeField] Animator animpl;
     CharacterController _characterController;
 
     private void Start()
@@ -35,8 +35,13 @@ public class PlayerController : MonoBehaviour
 
         if (movementDir != Vector3.zero)
         {
+            animpl.SetBool("Walk",true);
             Quaternion toRotation = Quaternion.LookRotation(movementDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            animpl.SetBool("Walk", false);
         }
     }
 }
