@@ -10686,6 +10686,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2a8af3a85bae4f648ad7914fce8f86fb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f142deb81937ee4db3db56de3026ff2, type: 2}
     - target: {fileID: 919132149155446097, guid: 2a8af3a85bae4f648ad7914fce8f86fb, type: 3}
       propertyPath: m_Name
       value: cajonero2
@@ -43710,6 +43714,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2a8af3a85bae4f648ad7914fce8f86fb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f142deb81937ee4db3db56de3026ff2, type: 2}
     - target: {fileID: 919132149155446097, guid: 2a8af3a85bae4f648ad7914fce8f86fb, type: 3}
       propertyPath: m_Name
       value: cajonero2 (1)
@@ -67795,13 +67803,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 06b8c6f84dfc826498e79d842cb64ad2, type: 2}
     - target: {fileID: 5866666021909216657, guid: b56b20ce92f48fa4a81bc821d0b8abce, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
-        'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'chefanim'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: b56b20ce92f48fa4a81bc821d0b8abce, type: 3}
       propertyPath: m_ApplyRootMotion
