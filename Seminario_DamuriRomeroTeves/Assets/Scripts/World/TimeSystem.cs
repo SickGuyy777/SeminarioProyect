@@ -11,6 +11,7 @@ public class TimeSystem : MonoBehaviour
 
     public TMP_Text hourText;
     public TMP_Text dayText;
+    public TMP_Text weekDayText;
     public TMP_Text monthText;
     public TMP_Text yearText;
 
@@ -18,6 +19,9 @@ public class TimeSystem : MonoBehaviour
     public int currentDay;
     //public int currentMonth;
     //public int currentYear;
+
+    string[] _daysOfWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+    string currentDayOfWeek = "Monday";
 
     private void Start()
     {
@@ -29,12 +33,38 @@ public class TimeSystem : MonoBehaviour
         TextCallFunction();
 
         WorldTime();
+
+        switch (currentDayOfWeek)
+        {
+            case "Monday":
+                Debug.Log("es lunes");
+                break;
+            case "Tuesday":
+                Debug.Log("es martes");
+                break;
+            case "Wednesday":
+                Debug.Log("es miercoles");
+                break;
+            case "Thursday":
+                Debug.Log("es jueves");
+                break;
+            case "Friday":
+                Debug.Log("es viernes");
+                break;
+            case "Saturday":
+                Debug.Log("es sabado");
+                break;
+            case "Sunday":
+                Debug.Log("es domingo");
+                break;
+        }
     }
 
     void TextCallFunction()
     {
         hourText.text = "Hour: " + currentHour;
         dayText.text = "Day: " + currentDay;
+        weekDayText.text = "Day of the week: " + _daysOfWeek[currentDay % 7];
     }
 
     void WorldTime()
@@ -43,6 +73,7 @@ public class TimeSystem : MonoBehaviour
         {
             currentDay++;
             currentHour = 0;
+            currentDayOfWeek = _daysOfWeek[currentDay % 7];
         }
     }
 
@@ -54,5 +85,6 @@ public class TimeSystem : MonoBehaviour
     {
         currentDay++;
         currentHour = 7;
+        currentDayOfWeek = _daysOfWeek[currentDay % 7];
     }
 }
