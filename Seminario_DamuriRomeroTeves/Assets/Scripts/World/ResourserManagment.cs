@@ -7,25 +7,50 @@ using TMPro;
 public class ResourserManagment : MonoBehaviour
 {
     [Header("BAR")]
-    [SerializeField] static float _currentAlcohol;
-    [SerializeField] static float _currentTobacco;
+    public float currentAlcohol;
+    public float currentTobacco;
+    public float currentMoney = 10000;
     public TMP_Text alcSuplies;
     public TMP_Text tobSuplies;
+    public TMP_Text[] moneyCoutn;
 
     float _maxAlcohol = 1000;
     float _maxTobacco = 1000;
 
     private void Start()
     {
-        _currentAlcohol = _maxAlcohol / 2;
-        _currentTobacco = _maxTobacco / 2;
+        currentAlcohol = _maxAlcohol / 2;
+        currentTobacco = _maxTobacco / 2;
     }
 
     private void Update()
     {
-        _currentAlcohol -= 0.25f * Time.deltaTime;
-        alcSuplies.text = _currentAlcohol.ToString("0") + "/" + _maxAlcohol.ToString("0") + " Liters";
-        _currentTobacco -= 0.25f * Time.deltaTime;
-        tobSuplies.text = _currentTobacco.ToString("0") + "/" + _maxTobacco.ToString("0") + " Kilos";
+        currentAlcohol -= 0.25f * Time.deltaTime;
+        alcSuplies.text = currentAlcohol.ToString("0") + "/" + _maxAlcohol.ToString("0") + " Liters";
+        currentTobacco -= 0.25f * Time.deltaTime;
+        tobSuplies.text = currentTobacco.ToString("0") + "/" + _maxTobacco.ToString("0") + " Kilos";
+        currentMoney += Random.Range(5f, 10f) * Time.deltaTime;
+        moneyCoutn[0].text = "Money: " + currentMoney.ToString("0");
+        moneyCoutn[1].text = "Money: " + currentMoney.ToString("0");
+        if (currentTobacco >= _maxTobacco) currentTobacco = _maxTobacco;
+        if (currentAlcohol >= _maxAlcohol) currentAlcohol = _maxAlcohol;
+    }
+
+    public void BuyAlcohol()
+    {
+        if (currentMoney >= 2000 && currentAlcohol < _maxAlcohol - 1)
+        {
+            currentAlcohol += 100;
+            currentMoney -= 2000;
+        }
+    }
+
+    public void BuyTobacco()
+    {
+        if (currentMoney >= 1000 && currentTobacco < _maxTobacco - 1)
+        {
+                currentTobacco += 100;
+                currentMoney -= 1000;
+        }
     }
 }

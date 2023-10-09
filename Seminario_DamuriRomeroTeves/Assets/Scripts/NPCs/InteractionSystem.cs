@@ -9,6 +9,7 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] LayerMask _wallLayer;
     [SerializeField] Canvas _interactuableCanv;
     [SerializeField] GameObject _managmentMenu;
+    [SerializeField] GameObject _gameplayUI;
 
     CanvasController _cnvController;
     PlayerController _playerPr;
@@ -56,12 +57,14 @@ public class InteractionSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _cnvController.onManagment = true;
+                _gameplayUI.SetActive(false);
                 _managmentMenu.SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
                 _cnvController.onManagment = false;
                 _managmentMenu.SetActive(false);
+                _gameplayUI.SetActive(true);
             }
         }
         else
