@@ -21,7 +21,7 @@ public class TimeSystem : MonoBehaviour
     //public int currentYear;
 
     string[] _daysOfWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-    string currentDayOfWeek = "Monday";
+    public string currentDayOfWeek = "Monday";
 
     private void Start()
     {
@@ -33,31 +33,6 @@ public class TimeSystem : MonoBehaviour
         TextCallFunction();
 
         WorldTime();
-
-        switch (currentDayOfWeek)
-        {
-            case "Monday":
-                Debug.Log("es lunes");
-                break;
-            case "Tuesday":
-                Debug.Log("es martes");
-                break;
-            case "Wednesday":
-                Debug.Log("es miercoles");
-                break;
-            case "Thursday":
-                Debug.Log("es jueves");
-                break;
-            case "Friday":
-                Debug.Log("es viernes");
-                break;
-            case "Saturday":
-                Debug.Log("es sabado");
-                break;
-            case "Sunday":
-                Debug.Log("es domingo");
-                break;
-        }
     }
 
     void TextCallFunction()

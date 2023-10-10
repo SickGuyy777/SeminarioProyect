@@ -42,7 +42,7 @@ public class DecisionDialogue: DialoguesSystem
         }
     }
 
-    public void Help()
+    public void HelpMafia()
     {
         passText.text = "ESC TO EXIT>>>";
         DeactivateButtons(false);
@@ -51,13 +51,34 @@ public class DecisionDialogue: DialoguesSystem
         _decisionIndex = 0;
         textComp.text = decisionLines[_decisionIndex];
     }
+    
+    public void HelpPolice()
+    {
+        passText.text = "ESC TO EXIT>>>";
+        DeactivateButtons(false);
+        _noMoreText = true;
+        eventManager.policeEvent = true;
+        _decisionIndex = 0;
+        textComp.text = decisionLines[_decisionIndex]; 
+        Debug.Log(eventManager.policeEvent);
+    }
 
-    public void NotHelp()
+    public void NotHelpMafia()
     {
         passText.text = "ESC TO EXIT>>>";
         DeactivateButtons(false);
         _noMoreText = true;
         eventManager.tortureEvent = false;
+        _decisionIndex = 1;
+        textComp.text = decisionLines[_decisionIndex];
+    }
+    
+    public void NotHelpPolice()
+    {
+        passText.text = "ESC TO EXIT>>>";
+        DeactivateButtons(false);
+        _noMoreText = true;
+        eventManager.policeEvent = false;
         _decisionIndex = 1;
         textComp.text = decisionLines[_decisionIndex];
     }
