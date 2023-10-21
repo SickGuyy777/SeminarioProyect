@@ -31,7 +31,7 @@ public class ResourserManagment : MonoBehaviour
         tobSuplies.text = currentTobacco.ToString("0") + "/" + _maxTobacco.ToString("0") + " Kilos";
         currentMoney += Random.Range(5f, 10f) * Time.deltaTime;
         moneyCoutn[0].text = "Money: " + currentMoney.ToString("0");
-        moneyCoutn[1].text = "Money: " + currentMoney.ToString("0");
+        moneyCoutn[1].text = /*"Money: " +*/ currentMoney.ToString("0");
         if (currentTobacco >= _maxTobacco) currentTobacco = _maxTobacco;
         if (currentAlcohol >= _maxAlcohol) currentAlcohol = _maxAlcohol;
     }
