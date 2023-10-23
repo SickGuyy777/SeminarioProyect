@@ -4,41 +4,53 @@ using UnityEngine;
 
 public class Mafia1Event : MonoBehaviour
 {
-    [SerializeField] protected TimeSystem _timeSys;
+    public TimeSystem timeSys;
 
-    [Header("Mafia Events")]
-    [SerializeField] GameObject _mafiaBoss;
-    [SerializeField] GameObject _tortureSpawnPoint;
-    [SerializeField] GameObject initialSpawnPoint;
-    public bool tortureEvent1;
+    public delegate void MafiaEvent();
+    public Dictionary<string, MafiaEvent> events;
 
+
+    void StartEvent()
+    {
+        if (events.TryGetValue(timeSys.currentDayOfWeek, out MafiaEvent mafiaEvent))
+        {
+            mafiaEvent?.Invoke();
+        }
+    }
     private void Start()
     {
-        _mafiaBoss.gameObject.SetActive(false);
+        events = new Dictionary<string, MafiaEvent>
+        {
+            {"Friday", FridayEvent },
+            {"Monday", MondayEvent },
+            {"Wednesday", WednesdayEvent }
+        };
     }
 
-    void Update()
+
+    void FridayEvent()
     {
-        MafiaEvent1();
+        Debug.Log("Hago el evento del viernes");
+    }
+
+    void MondayEvent()
+    {
+        Debug.Log("Hago el evento del lunes");
+    }
+
+    void WednesdayEvent()
+    {
+        Debug.Log("Hago el evento del miercoles");
     }
 
 
-    public void MafiaEvent1()
+    private void OnEnable()
     {
-        if (_timeSys.currentDayOfWeek == "Friday" && _timeSys.currentHour >= 15 && _timeSys.currentHour <= 19)
-            _mafiaBoss.gameObject.SetActive(true);
-        else if (_timeSys.currentHour >= 22 && tortureEvent1 == true)
-        {
-            _mafiaBoss.transform.position = _tortureSpawnPoint.transform.position;
-            _mafiaBoss.gameObject.SetActive(true);
-        }
-        else if (/*_timeSys.currentHour == 0*/ _timeSys.currentDayOfWeek != "Friday")
-        {
-            _mafiaBoss.transform.position = initialSpawnPoint.transform.position;
-            tortureEvent1 = false;
-            _mafiaBoss.gameObject.SetActive(false);
-        }
-        else
-            _mafiaBoss.gameObject.SetActive(false);
+        DecisionDialogue.OnDecisionMade += StartEvent;
+    }
+
+    private void OnDisable()
+    {
+        DecisionDialogue.OnDecisionMade -= StartEvent;
     }
 }
