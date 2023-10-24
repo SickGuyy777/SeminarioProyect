@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DecisionDialogue: DialoguesSystem
+public class DecisionDialogue: DialoguesSystem, IScreen
 {
     [SerializeField] bool _noMoreText;
     public string[] decisionLines;
@@ -11,17 +11,13 @@ public class DecisionDialogue: DialoguesSystem
 
     int _decisionIndex;
 
+
     public delegate void DecisionMade();
     public static event DecisionMade OnDecisionMade;
 
     private void Start()
     {
-        _noMoreText = false;
-        textComp.text = string.Empty;
-        StartDialogue();
-
-        foreach (var button in buttons)
-            button.SetActive(false);
+        
     }
 
     private void Update()
@@ -89,5 +85,25 @@ public class DecisionDialogue: DialoguesSystem
     {
         foreach (var button in buttons)
             button.SetActive(truefalse);
+    }
+
+    public void Activate()
+    {
+        _noMoreText = false;
+        textComp.text = string.Empty;
+        //StartDialogue();
+
+        foreach (var button in buttons)
+            button.SetActive(false);
+    }
+
+    public void Desactivate()
+    {
+
+    }
+
+    public void Free()
+    {
+        Destroy(gameObject);
     }
 }

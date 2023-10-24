@@ -35,6 +35,12 @@ public class DialoguesSystem : MonoBehaviour
     protected void StartDialogue()
     {
         _index = 0;
+
+        if (!gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(true);
+        }
+
         StartCoroutine(TypeLine());
     }
 
