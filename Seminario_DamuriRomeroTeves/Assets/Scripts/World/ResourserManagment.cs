@@ -10,17 +10,25 @@ public class ResourserManagment : MonoBehaviour
     public float currentAlcohol;
     public float currentTobacco;
     public float currentMoney = 10000;
+    public float currentRelMafia;
+    public float currentRelCops;
     public TMP_Text alcSuplies;
     public TMP_Text tobSuplies;
     public TMP_Text[] moneyCoutn;
+    [SerializeField] Image _mafiaFill, _copsFill;
 
     float _maxAlcohol = 1000;
     float _maxTobacco = 1000;
+    float _maxRelMafia = 100;
+    float _maxRelCops = 100;
 
     private void Start()
     {
         currentAlcohol = _maxAlcohol / 2;
         currentTobacco = _maxTobacco / 2;
+
+        currentRelCops = _maxRelCops;
+        currentRelMafia = _maxRelMafia;
     }
 
     private void Update()
@@ -34,6 +42,9 @@ public class ResourserManagment : MonoBehaviour
         moneyCoutn[1].text = /*"Money: " +*/ currentMoney.ToString("0");
         if (currentTobacco >= _maxTobacco) currentTobacco = _maxTobacco;
         if (currentAlcohol >= _maxAlcohol) currentAlcohol = _maxAlcohol;
+
+        _mafiaFill.fillAmount = currentRelMafia / _maxRelMafia;
+        _copsFill.fillAmount = currentRelCops / _maxRelCops;
     }
 
     public void BuyAlcohol()
