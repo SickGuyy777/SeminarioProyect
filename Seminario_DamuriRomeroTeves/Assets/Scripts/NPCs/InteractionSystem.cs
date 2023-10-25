@@ -58,18 +58,18 @@ public class InteractionSystem : MonoBehaviour
             {
                 _cnvController.onManagment = true;
                 _gameplayUI.SetActive(false);
-                //_managmentMenu.SetActive(true);
+                _managmentMenu.SetActive(true);
 
                 //var managmentScreen = Instantiate(Resources.Load<DecisionDialogue>(_managmentMenu.ToString()));
 
-                ScreenManager.instance.Push(_managmentMenu.GetComponent<IScreen>());
+                //ScreenManager.instance.Push(_managmentMenu.GetComponent<IScreen>());
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
                 _cnvController.onManagment = false;
-                //_managmentMenu.SetActive(false);
+                _managmentMenu.SetActive(false);
                 _gameplayUI.SetActive(true);
-                ScreenManager.instance.Pop();
+                //ScreenManager.instance.Pop();
             }
         }
         else
