@@ -66,13 +66,18 @@ public class InteractionSystem : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
-                _cnvController.onManagment = false;
-                _managmentMenu.SetActive(false);
-                _gameplayUI.SetActive(true);
-                //ScreenManager.instance.Pop();
+                CloseUI();
             }
         }
         else
             _interactuableCanv.enabled = false;
+    }
+
+    public void CloseUI()
+    {
+        _cnvController.onManagment = false;
+        _managmentMenu.SetActive(false);
+        _gameplayUI.SetActive(true);
+        //ScreenManager.instance.Pop();
     }
 }
