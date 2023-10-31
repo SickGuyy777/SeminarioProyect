@@ -28,8 +28,8 @@ public class ResourserManagment : MonoBehaviour
         currentAlcohol = _maxAlcohol / 2;
         currentTobacco = _maxTobacco / 2;
 
-        currentRelCops = _maxRelCops;
-        currentRelMafia = _maxRelMafia;
+        currentRelCops = _maxRelCops / 2;
+        currentRelMafia = _maxRelMafia / 2;
     }
 
     private void Update()
