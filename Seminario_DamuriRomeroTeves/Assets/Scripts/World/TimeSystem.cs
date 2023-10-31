@@ -22,7 +22,9 @@ public class TimeSystem : MonoBehaviour
     public int currentDay;
     public int currentMonth;
     //public int currentYear;
-
+    public GameObject DayNow;
+    public List<Transform> posday;
+    public int listSize;
     public float CurrentMinutes;
     private float seconds;
     string[] _daysOfWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -53,6 +55,15 @@ public class TimeSystem : MonoBehaviour
             seconds = 0;
             CurrentMinutes++;
         }
+
+
+            if (currentDay >= listSize)
+            {
+                currentDay = 0;  // Reinicia el índice al llegar al máximo de la lista
+            }
+
+            DayNow.transform.position = posday[currentDay+1].position;
+        
     }
 
     void TextCallFunction()
