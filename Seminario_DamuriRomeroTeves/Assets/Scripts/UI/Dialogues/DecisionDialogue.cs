@@ -8,8 +8,10 @@ public class DecisionDialogue: DialoguesSystem, IScreen
     [SerializeField] bool _noMoreText;
     public string[] decisionLines;
     public GameObject[] buttons;
+    public InteractionSystem interactSys;
 
     int _decisionIndex;
+    bool _hasTalkMafia;
 
 
     public delegate void DecisionMade();
@@ -42,11 +44,17 @@ public class DecisionDialogue: DialoguesSystem, IScreen
 
     public void HelpMafia1()
     {
+        if (_hasTalkMafia == true) return;
+
+
         passText.text = "ESC TO EXIT>>>";
         DeactivateButtons(false);
         _noMoreText = true;
         _decisionIndex = 0;
         textComp.text = decisionLines[_decisionIndex];
+        _hasTalkMafia = true;
+
+        interactSys.CloseUI();
 
         OnDecisionMade?.Invoke();
     }

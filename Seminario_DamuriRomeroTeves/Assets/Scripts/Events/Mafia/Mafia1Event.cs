@@ -5,6 +5,9 @@ using UnityEngine;
 public class Mafia1Event : MonoBehaviour
 {
     public TimeSystem timeSys;
+    public Transform eventPosition;
+    public GameObject dialogue;
+    public InteractionSystem interactSys;
 
     public delegate void MafiaEvent();
     public Dictionary<string, MafiaEvent> events;
@@ -36,6 +39,11 @@ public class Mafia1Event : MonoBehaviour
     void MondayEvent()
     {
         Debug.Log("Hago el evento del lunes");
+
+        transform.position = eventPosition.position;
+        dialogue.SetActive(true);
+        interactSys.enabled = false;
+
     }
 
     void WednesdayEvent()
