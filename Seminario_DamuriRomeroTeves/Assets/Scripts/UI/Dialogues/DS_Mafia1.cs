@@ -13,6 +13,7 @@ public class DS_Mafia1 : DialoguesSystem
     public InteractionSystem interactSys;
     public GameObject DialogueAcept;
     public GameObject Dialogue;
+    public GameObject UI;
 
 
     int _decisionIndex;
@@ -50,6 +51,7 @@ public class DS_Mafia1 : DialoguesSystem
         Dialogue.SetActive(false);
 
         gameObject.SetActive(false);
+        UI.SetActive(true); 
     }
     public void Deny()
     {
@@ -61,6 +63,7 @@ public class DS_Mafia1 : DialoguesSystem
 
         interactSys.CloseUI();
         Mafia.SetActive(false);
+        UI.SetActive(true); 
 
     }
 

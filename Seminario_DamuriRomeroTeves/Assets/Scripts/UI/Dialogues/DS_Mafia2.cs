@@ -11,7 +11,6 @@ public class DS_Mafia2 : DialoguesSystem
     public GameObject[] buttons;
     public GameObject Mafia;
     public InteractionSystem interactSys;
-    public GameObject UI;
     public GameObject mafia;
 
     int _decisionIndex;
@@ -50,9 +49,8 @@ public class DS_Mafia2 : DialoguesSystem
         //_decisionIndex = 0;
         //textComp.text = decisionLines[_decisionIndex];
 
-        UI.SetActive(true);
-        mafia.SetActive(false);
-
+       // mafia.SetActive(false);
+        interactSys.CloseUI();
         gameObject.SetActive(false);
     }
 
