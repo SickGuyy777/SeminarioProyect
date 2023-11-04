@@ -61,9 +61,9 @@ public class TimeSystem : MonoBehaviour
             {
                 currentDay = 0;  // Reinicia el índice al llegar al máximo de la lista
             }
+            DayNow.transform.position = posday[currentDay + 1].position;
 
-            DayNow.transform.position = posday[currentDay+1].position;
-        
+
     }
 
     void TextCallFunction()
