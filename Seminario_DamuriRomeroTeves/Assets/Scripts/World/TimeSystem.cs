@@ -43,6 +43,7 @@ public class TimeSystem : MonoBehaviour
         daysMoth[5].SetActive(false);
         daysMoth[6].SetActive(false);
         daysMoth[7].SetActive(false);
+        daysMoth[8].SetActive(false);
     }
 
     private void Update()
@@ -101,7 +102,7 @@ public class TimeSystem : MonoBehaviour
         #region mes
         switch (currentMonth)
         {
-            case 0:
+            case 0://enero
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(true);
@@ -111,9 +112,11 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 1:
+            case 1://febrero
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
@@ -123,9 +126,11 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 2:
+            case 2://marzo
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
@@ -135,9 +140,11 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 3:
+            case 3://abril
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
@@ -147,9 +154,11 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 4:
+            case 4://mayo
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
@@ -159,9 +168,11 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(true);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 5:
+            case 5://junio
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
@@ -171,21 +182,25 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(true);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 6:
+            case 6://julio
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
                     daysMoth[2].SetActive(false);
                     daysMoth[3].SetActive(false);
-                    daysMoth[4].SetActive(true);
+                    daysMoth[4].SetActive(false);
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(true);
                     break;
                 }
-            case 7:
+            case 7://agosto
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
@@ -195,9 +210,11 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(true);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 8:
+            case 8://septiembre
                 {
                     daysMoth[0].SetActive(true);
                     daysMoth[1].SetActive(false);
@@ -207,9 +224,11 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 9:
+            case 9://octubre
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(true);
@@ -219,9 +238,11 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 10:
+            case 10://noviembre
                 {
                     daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
@@ -231,11 +252,13 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(false);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
-            case 11:
+            case 11://diciembre
                 {
-                    daysMoth[0].SetActive(true);
+                    daysMoth[0].SetActive(false);
                     daysMoth[1].SetActive(false);
                     daysMoth[2].SetActive(false);
                     daysMoth[3].SetActive(false);
@@ -243,6 +266,8 @@ public class TimeSystem : MonoBehaviour
                     daysMoth[5].SetActive(false);
                     daysMoth[6].SetActive(false);
                     daysMoth[7].SetActive(false);
+                    daysMoth[8].SetActive(true);
+                    daysMoth[9].SetActive(false);
                     break;
                 }
         }
@@ -261,7 +286,7 @@ public class TimeSystem : MonoBehaviour
             currentMonth++;
             currentDay = 1;
         }
-        else if (currentDay > 31 && currentMonth == 3)//abril
+        else if (currentDay > 30 && currentMonth == 3)//abril
         {
             currentMonth++;
             currentDay = 1;
@@ -286,7 +311,7 @@ public class TimeSystem : MonoBehaviour
             currentMonth++;
             currentDay = 1;
         }
-        else if (currentDay > 31 && currentMonth == 8)//septiembre
+        else if (currentDay > 30 && currentMonth == 8)//septiembre
         {
             currentMonth++;
             currentDay = 1;
