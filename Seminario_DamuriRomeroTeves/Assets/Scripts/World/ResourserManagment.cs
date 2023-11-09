@@ -12,6 +12,8 @@ public class ResourserManagment : MonoBehaviour
     public float currentMoney = 10000;
     public float currentRelMafia;
     public float currentRelCops;
+    public List<GameObject> ObjDecoration;
+    public List<GameObject> ButtomEquip;
     public TMP_Text alcSuplies;
     public TMP_Text tobSuplies;
     public TMP_Text[] moneyCoutn;
@@ -68,4 +70,33 @@ public class ResourserManagment : MonoBehaviour
                 currentMoney -= 1000;
         }
     }
+
+    #region VisualShoop
+    public void BuyRockola()
+    {
+        if(currentMoney>=100)
+        {
+            currentMoney -= 100;
+            ButtomEquip[0].SetActive(true);
+        }
+    }
+    public void BuyEscenario()
+    {
+        if (currentMoney >= 150)
+        {
+            currentMoney -= 150;
+            ButtomEquip[1].SetActive(true);
+        }
+    }
+    public void EquipRockola()
+    {
+        ObjDecoration[0].SetActive(true);
+        ObjDecoration[1].SetActive(false);
+    }
+    public void EquipEscenario()
+    {
+        ObjDecoration[0].SetActive(false);
+        ObjDecoration[1].SetActive(true);
+    }
+    #endregion
 }
