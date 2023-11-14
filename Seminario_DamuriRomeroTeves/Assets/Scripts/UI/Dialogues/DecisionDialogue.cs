@@ -9,7 +9,7 @@ public class DecisionDialogue: DialoguesSystem, IScreen
     public string[] decisionLines;
     public GameObject[] buttons;
     public InteractionSystem interactSys;
-
+    public Animator animboss;
     int _decisionIndex;
     bool _hasTalkMafia;
 
@@ -41,7 +41,10 @@ public class DecisionDialogue: DialoguesSystem, IScreen
             else DeactivateButtons(false);
         }
     }
-
+    public void Animcambio()
+    {
+        animboss.SetBool("up", true);
+    }
     public void HelpMafia1()
     {
         if (_hasTalkMafia == true) return;

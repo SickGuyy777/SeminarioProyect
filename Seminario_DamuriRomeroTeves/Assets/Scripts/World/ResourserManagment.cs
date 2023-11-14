@@ -19,7 +19,6 @@ public class ResourserManagment : MonoBehaviour
     public TMP_Text[] moneyCoutn;
     public LightManager timesys;
     [SerializeField] Image _mafiaFill, _copsFill;
-
     float _maxAlcohol = 1000;
     float _maxTobacco = 1000;
     float _maxRelMafia = 100;
