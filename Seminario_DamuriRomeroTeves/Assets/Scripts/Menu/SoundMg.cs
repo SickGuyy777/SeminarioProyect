@@ -5,50 +5,73 @@ using UnityEngine.UI;
 
 public class SoundMg : MonoBehaviour
 {
-    public Slider volumeSlider;
-    public GameObject[] MusicSoundobjs;
-    private float MusicVolume = 1f;
-    private AudioSource[] _AudioSources;
+    public AudioSource musicSource;
+    public AudioSource[] buttonSoundSources; // Array de AudioSource para sonidos de botones
+    public AudioSource[] EffectsSources; // Array de AudioSource para sonidos de botones
+    public Slider masterVolumeSlider;
+    public Slider musicSlider;
+    public Slider buttonSoundSlider;
+    public Slider EffectsSoundSlider;
 
-    private void Start()
+
+    void Start()
     {
-        _AudioSources = new AudioSource[MusicSoundobjs.Length];
-        for (int i = 0; i < MusicSoundobjs.Length; i++)
-        {
-            _AudioSources[i] = MusicSoundobjs[i].GetComponent<AudioSource>();
-        }
+        // Configurar los sliders
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        buttonSoundSlider.value = PlayerPrefs.GetFloat("ButtonSoundVolume", 1f);
+        masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        EffectsSoundSlider.value = PlayerPrefs.GetFloat("EffectsVolume", 1f);
 
-        // Maneja el volumen
-        MusicVolume = PlayerPrefs.GetFloat("volume");
-        foreach (var audioSource in _AudioSources)
-        {
-            audioSource.volume = MusicVolume;
-        }
-        volumeSlider.value = MusicVolume;
+        // Configurar los volúmenes iniciales
+        SetMusicVolume(musicSlider.value);
+        SetButtonSoundVolume(buttonSoundSlider.value);
+        SetMasterVolume(masterVolumeSlider.value);
+        SetButtonSoundVolumeEffectSounds(EffectsSoundSlider.value);
     }
 
-    private void Update()
+    // Función para cambiar el volumen de la música
+    public void SetMusicVolume(float volume)
     {
-        // Actualiza el volumen de todos los AudioSource en el array
-        foreach (var audioSource in _AudioSources)
-        {
-            audioSource.volume = MusicVolume;
-        }
-        PlayerPrefs.SetFloat("volume", MusicVolume);
+        musicSource.volume = volume;
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
-    public void VolumeUpdater(float volume)
+    // Función para cambiar el volumen de los sonidos de botones
+    public void SetButtonSoundVolume(float volume)
     {
-        MusicVolume = volume;
-    }
-
-    public void MusicReset()
-    {
-        PlayerPrefs.DeleteKey("volume");
-        foreach (var audioSource in _AudioSources)
+        foreach (AudioSource buttonSoundSource in buttonSoundSources)
         {
-            audioSource.volume = 1;
+            buttonSoundSource.volume = volume;
         }
-        volumeSlider.value = 1;
+        PlayerPrefs.SetFloat("ButtonSoundVolume", volume);
+    }
+    public void SetButtonSoundVolumeEffectSounds(float volume)
+    {
+        foreach (AudioSource buttonSoundSource in EffectsSources)
+        {
+            buttonSoundSource.volume = volume;
+        }
+        PlayerPrefs.SetFloat("EffectsVolume", volume);
+    }
+    // Función para cambiar el volumen maestro (tanto música como sonidos de botones)
+    public void SetMasterVolume(float volume)
+    {
+        foreach (AudioSource buttonSoundSource in buttonSoundSources)
+        {
+            buttonSoundSource.volume = volume;
+        }
+
+        musicSource.volume = volume;
+        PlayerPrefs.SetFloat("MasterVolume", volume);
+    }    
+    public void SetEffectsVolume(float volume)
+    {
+        foreach (AudioSource buttonSoundSource in EffectsSources)
+        {
+            buttonSoundSource.volume = volume;
+        }
+
+        musicSource.volume = volume;
+        PlayerPrefs.SetFloat("EffectsVolume", volume);
     }
 }
