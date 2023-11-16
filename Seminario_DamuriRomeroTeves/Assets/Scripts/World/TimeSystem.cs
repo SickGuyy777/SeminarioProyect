@@ -336,7 +336,8 @@ public class TimeSystem : MonoBehaviour
 
     public void ChangeHour() 
     {
-        currentHour++;
+        currentHour += 6;
+        CurrentMinutes = 00;
         numday.timeday += 3600;
     }
     public void ChangeDay()
