@@ -14,11 +14,14 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
-        movementSpeed = maxSpeed;
     }
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            movementSpeed = 3;
+        }
         Movement();
     }
 
