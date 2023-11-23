@@ -8,6 +8,7 @@ public class TimeSystem : MonoBehaviour
 {
     [Header("NPCs")]
     [SerializeField] GameObject _mafiaBoss;
+    [SerializeField] PlayerController _player;
     [SerializeField] LightManager numday;
     public TMP_Text hourText;
     public TMP_Text minuteText;
@@ -32,6 +33,8 @@ public class TimeSystem : MonoBehaviour
     public string currentDayOfWeek = "Monday";
     public string currentMonthOfYear = "January";
 
+    bool _isTimeXTwo;
+
     private void Start()
     {
         if (currentDay == 0) currentDay = 1;
@@ -44,6 +47,7 @@ public class TimeSystem : MonoBehaviour
         daysMoth[6].SetActive(false);
         daysMoth[7].SetActive(false);
         daysMoth[8].SetActive(false);
+        _isTimeXTwo = false;
     }
 
     private void Update()
@@ -51,20 +55,29 @@ public class TimeSystem : MonoBehaviour
         TextCallFunction();
         WorldTime();
         seconds += multipltime * Time.deltaTime;
+
         if (seconds>59)
         {
             seconds = 0;
             CurrentMinutes++;
         }
 
+        if (currentDay >= listSize)
+        {
+            currentDay = 0;  // Reinicia el índice al llegar al máximo de la lista
+        }
+        DayNow.transform.position = posday[currentDay + 1].position;
 
-            if (currentDay >= listSize)
-            {
-                currentDay = 0;  // Reinicia el índice al llegar al máximo de la lista
-            }
-            DayNow.transform.position = posday[currentDay + 1].position;
-
-
+        if (_isTimeXTwo == true)
+        {
+            Time.timeScale = 60;
+            _player.movementSpeed = 0;
+        }
+        else if (_isTimeXTwo == false) 
+        {
+            Time.timeScale = 1;
+            _player.movementSpeed = _player.maxSpeed;
+        }
     }
 
     void TextCallFunction()
@@ -336,10 +349,10 @@ public class TimeSystem : MonoBehaviour
 
     public void ChangeHour() 
     {
-        currentHour++;
-        CurrentMinutes = 00;
+        _isTimeXTwo = !_isTimeXTwo;
         numday.timeday += 3600;
     }
+
     public void ChangeDay()
     {
         currentDay++;

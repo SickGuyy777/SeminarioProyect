@@ -24,6 +24,9 @@ public class ResourserManagment : MonoBehaviour
     float _maxRelMafia = 100;
     float _maxRelCops = 100;
 
+    [Header("UI")]
+    public TMP_Text lastEarnings;
+
     private void Start()
     {
         currentAlcohol = _maxAlcohol / 2;
@@ -39,10 +42,6 @@ public class ResourserManagment : MonoBehaviour
         alcSuplies.text = currentAlcohol.ToString("0") + "/" + _maxAlcohol.ToString("0") + " Liters";
         currentTobacco -= 0.25f * Time.deltaTime;
         tobSuplies.text = currentTobacco.ToString("0") + "/" + _maxTobacco.ToString("0") + " Kilos";
-        if(timesys.timeday>=30600 && timesys.timeday<=79200)//horario en el que habre y cierra el local aca tienen que hacer el calculo del horario expresado en segundos para que coincida con el horario del dia
-        {                                                   //pq es meramente visual la UI de minutos y segundos
-            currentMoney += Random.Range(5f, 10f) * Time.deltaTime;
-        }
         moneyCoutn[0].text = "Money: " + currentMoney.ToString("0");
         moneyCoutn[1].text = currentMoney.ToString("0");
         if (currentTobacco >= _maxTobacco) currentTobacco = _maxTobacco;

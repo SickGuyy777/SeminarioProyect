@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionSystem : MonoBehaviour
 {
     [Header("INTERACTUABLE TABLE")]
     [SerializeField] float _viewRadius;
     [SerializeField] LayerMask _wallLayer;
-    [SerializeField] Canvas _interactuableCanv;
+    [SerializeField] Image _interactuableImg;
+    [SerializeField] Image _excalamtionImg;
     [SerializeField] GameObject _managmentMenu;
     [SerializeField] GameObject _gameplayUI;
 
@@ -20,7 +22,8 @@ public class InteractionSystem : MonoBehaviour
         _cnvController = CanvasController.FindObjectOfType<CanvasController>();
 
         _cnvController.onManagment = false;
-        _interactuableCanv.enabled = false;
+        _interactuableImg.enabled = false;
+        _excalamtionImg.enabled = true;
         //_managmentMenu.SetActive(false);
     }
 
@@ -53,7 +56,8 @@ public class InteractionSystem : MonoBehaviour
     {
         if (InFOV(_playerPr.transform.position))
         {
-            _interactuableCanv.enabled = true;
+            _interactuableImg.enabled = true;
+            _excalamtionImg.enabled = false;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _cnvController.onManagment = true;
@@ -70,7 +74,10 @@ public class InteractionSystem : MonoBehaviour
             }
         }
         else
-            _interactuableCanv.enabled = false;
+        {
+            _interactuableImg.enabled = false;
+            _excalamtionImg.enabled = true;
+        }
     }
 
     public void CloseUI()

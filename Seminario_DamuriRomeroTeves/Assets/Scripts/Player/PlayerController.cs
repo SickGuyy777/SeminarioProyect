@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            movementSpeed = 3;
+            movementSpeed = 4;
         }
         Movement();
     }
