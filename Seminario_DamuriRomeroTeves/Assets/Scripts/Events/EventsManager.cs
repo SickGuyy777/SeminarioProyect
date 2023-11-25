@@ -48,9 +48,8 @@ public class EventsManager : MonoBehaviour
 
     void SurpriseEvent()
     {
-        if (_timeSys.currentDayOfWeek == "Wednesday" && _timeSys.currentHour >= 12 && _timeSys.currentHour <= 17)
+        if (_timeSys.currentDayOfWeek == "Wednesday" && _timeSys.currentHour == 12 && _timeSys.CurrentMinutes == 0)
             _surpriseEvent.SetActive(true);
-        else _surpriseEvent.SetActive(false);
     }
 }
 

@@ -33,7 +33,7 @@ public class TimeSystem : MonoBehaviour
     public string currentDayOfWeek = "Monday";
     public string currentMonthOfYear = "January";
 
-    bool _isTimeXTwo;
+    [HideInInspector] public bool isTimeXTwo;
 
     private void Start()
     {
@@ -47,7 +47,7 @@ public class TimeSystem : MonoBehaviour
         daysMoth[6].SetActive(false);
         daysMoth[7].SetActive(false);
         daysMoth[8].SetActive(false);
-        _isTimeXTwo = false;
+        isTimeXTwo = false;
     }
 
     private void Update()
@@ -68,12 +68,12 @@ public class TimeSystem : MonoBehaviour
         }
         DayNow.transform.position = posday[currentDay + 1].position;
 
-        if (_isTimeXTwo == true)
+        if (isTimeXTwo == true)
         {
             Time.timeScale = 60;
             _player.movementSpeed = 0;
         }
-        else if (_isTimeXTwo == false) 
+        else if (isTimeXTwo == false) 
         {
             Time.timeScale = 1;
             _player.movementSpeed = _player.maxSpeed;
@@ -347,9 +347,9 @@ public class TimeSystem : MonoBehaviour
         #endregion
     }
 
-    public void ChangeHour() 
+    public void ChangeHour()
     {
-        _isTimeXTwo = !_isTimeXTwo;
+        isTimeXTwo = !isTimeXTwo;
         numday.timeday += 3600;
     }
 
