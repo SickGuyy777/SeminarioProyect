@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class EventsManager : MonoBehaviour
@@ -19,6 +20,7 @@ public class EventsManager : MonoBehaviour
 
     private void Update()
     {
+        if (_timeSys.currentDay == 31) SceneManager.LoadScene("ThanksForPlaying");
         SpawnBoss();
         SpawnPolice();
         SurpriseEvent();
