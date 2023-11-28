@@ -350,7 +350,7 @@ public class TimeSystem : MonoBehaviour
     public void ChangeHour()
     {
         isTimeXTwo = !isTimeXTwo;
-        numday.timeday += 3600;
+        //numday.timeday += 3600;
     }
 
     public void ChangeDay()

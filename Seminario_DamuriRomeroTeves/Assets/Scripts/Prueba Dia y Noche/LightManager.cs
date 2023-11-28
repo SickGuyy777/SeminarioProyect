@@ -10,7 +10,7 @@ public class LightManager : MonoBehaviour
     [Range(0, 86400)] public float timeday;//los segundos en un dia
     private void Start()
     {
-        timeday = 25200;//los segundos si fueran las 7am
+        timeday = 21600;//los segundos si fueran las 6am
     }
     private void Update()
     {

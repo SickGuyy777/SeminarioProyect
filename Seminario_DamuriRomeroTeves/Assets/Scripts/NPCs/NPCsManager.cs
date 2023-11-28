@@ -9,6 +9,8 @@ public class NPCsManager : MonoBehaviour
     [SerializeField] NPCController[] _npcArray;
     [SerializeField] TimeSystem _timeSys;
     [SerializeField] float _startTimer;
+    public GameObject objetoParaActivar;
+    private bool objetoActivo = false;
     float _currentTimer;
 
     private void Start()
@@ -30,5 +32,16 @@ public class NPCsManager : MonoBehaviour
                 _currentTimer = Random.Range(_startTimer, _startTimer / 2);
             }
         }
+
+        if (_timeSys.currentHour == 7 && !objetoActivo)
+        {
+            objetoParaActivar.SetActive(true);
+            objetoActivo = true;
+            Invoke("DesactivarObjeto", 5f);
+        }
+    }
+    void DesactivarObjeto()
+    {
+        objetoParaActivar.SetActive(false);
     }
 }
