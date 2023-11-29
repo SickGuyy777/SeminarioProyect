@@ -9,7 +9,6 @@ public class DialoguesSystem : MonoBehaviour
     public TextMeshProUGUI passText;
     public string[] lines;
     public float textSpeed;
-
     protected int _index;
 
     private void Start()
