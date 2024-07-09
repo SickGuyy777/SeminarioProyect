@@ -8,14 +8,14 @@ public class NPCsManager : MonoBehaviour
     public List<NPCController> npcList = new List<NPCController>();
     [SerializeField] NPCController[] _npcArray;
     [SerializeField] TimeSystem _timeSys;
-    [SerializeField] float _startTimer;
+    public float startTimer;
     public GameObject objetoParaActivar;
     private bool objetoActivo = false;
     float _currentTimer;
 
     private void Start()
     {
-        _currentTimer = Random.Range(_startTimer, _startTimer/2);
+        _currentTimer = Random.Range(startTimer, startTimer / 2);
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class NPCsManager : MonoBehaviour
                 var selected = npcList.ElementAt(randomNum);
                 selected.gameObject.SetActive(true);
                 npcList.Remove(selected);
-                _currentTimer = Random.Range(_startTimer, _startTimer / 2);
+                _currentTimer = Random.Range(startTimer, startTimer / 2);
             }
         }
 

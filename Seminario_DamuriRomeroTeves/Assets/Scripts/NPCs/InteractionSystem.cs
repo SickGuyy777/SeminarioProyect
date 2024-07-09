@@ -9,7 +9,6 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] float _viewRadius;
     [SerializeField] LayerMask _wallLayer;
     [SerializeField] Image _interactuableImg;
-    [SerializeField] Image _excalamtionImg;
     [SerializeField] GameObject _managmentMenu;
     [SerializeField] GameObject _gameplayUI;
 
@@ -22,8 +21,8 @@ public class InteractionSystem : MonoBehaviour
         _cnvController = CanvasController.FindObjectOfType<CanvasController>();
 
         _cnvController.onManagment = false;
-        _interactuableImg.enabled = false;
-        _excalamtionImg.enabled = true;
+        _interactuableImg.enabled = true;
+        _interactuableImg.color = new Color(1f, 1f, 1f, .15f);
         //_managmentMenu.SetActive(false);
     }
 
@@ -56,8 +55,7 @@ public class InteractionSystem : MonoBehaviour
     {
         if (InFOV(_playerPr.transform.position))
         {
-            _interactuableImg.enabled = true;
-            _excalamtionImg.enabled = false;
+            _interactuableImg.color = new Color(1f, 1f, 1f, 1f);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _cnvController.onManagment = true;
@@ -69,15 +67,9 @@ public class InteractionSystem : MonoBehaviour
                 //ScreenManager.instance.Push(_managmentMenu.GetComponent<IScreen>());
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
-            {
                 CloseUI();
-            }
         }
-        else
-        {
-            _interactuableImg.enabled = false;
-            _excalamtionImg.enabled = true;
-        }
+        else _interactuableImg.color = new Color(1f, 1f, 1f, .15f);
     }
 
     public void CloseUI()

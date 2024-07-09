@@ -8,6 +8,7 @@ public class EmployeesManager : MonoBehaviour
     [SerializeField] List<GameObject> _prefabs = new List<GameObject>();
     [SerializeField] List<int> _prices = new List<int>();
     [SerializeField] ResourserManagment _manager;
+    [SerializeField] NPCsManager _npcManager;
     int _eIndex;
 
     private void Start()
@@ -49,5 +50,6 @@ public class EmployeesManager : MonoBehaviour
         _prices.Remove(_prices[_eIndex]);
         _eIndex = 0;
         _employeesPanels[_eIndex].gameObject.SetActive(true);
+        _npcManager.startTimer -= 15;
     }
 }

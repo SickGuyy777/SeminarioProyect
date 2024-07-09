@@ -160,15 +160,52 @@ public class ResourserManagment : MonoBehaviour
             ButtomEquip[1].SetActive(true);
         }
     }
+
+    public void BuyPool()
+    {
+        if (currentMoney >= 300)
+        {
+            currentMoney -= 300;
+            ButtomEquip[2].SetActive(true);
+        }
+    }
+
+    public void BuySofasZone()
+    {
+        if (currentMoney >= 750)
+        {
+            currentMoney -= 750;
+            ButtomEquip[3].SetActive(true);
+        }
+    }
+
     public void EquipRockola()
     {
         ObjDecoration[0].SetActive(true);
         ObjDecoration[1].SetActive(false);
+        ObjDecoration[2].SetActive(false);
+        ObjDecoration[3].SetActive(false);
     }
     public void EquipEscenario()
     {
         ObjDecoration[0].SetActive(false);
         ObjDecoration[1].SetActive(true);
+        ObjDecoration[2].SetActive(false);
+        ObjDecoration[3].SetActive(false);
+    }
+    public void EquipPool()
+    {
+        ObjDecoration[0].SetActive(false);
+        ObjDecoration[1].SetActive(false);
+        ObjDecoration[2].SetActive(true);
+        ObjDecoration[3].SetActive(false);
+    }
+    public void EquipSofasZone()
+    {
+        ObjDecoration[0].SetActive(false);
+        ObjDecoration[1].SetActive(false);
+        ObjDecoration[2].SetActive(false);
+        ObjDecoration[3].SetActive(true);
     }
     #endregion
 }
