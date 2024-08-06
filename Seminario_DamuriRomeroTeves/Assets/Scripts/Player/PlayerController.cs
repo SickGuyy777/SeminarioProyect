@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _cameraTransform;
     [SerializeField] Animator animpl;
     CharacterController _characterController;
-
+    public bool a=false;
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -22,7 +24,15 @@ public class PlayerController : MonoBehaviour
         {
             movementSpeed = 4;
         }
-        Movement();
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            a = !a;
+        }
+        if(!a)
+        {
+            Movement();
+        }
+
     }
 
     void Movement()
@@ -32,7 +42,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movementDir = new Vector3(h, 0, v);
         float magnitude = Mathf.Clamp01(movementDir.magnitude) * movementSpeed;
-        movementDir = Quaternion.AngleAxis(_cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDir;
         movementDir.Normalize();
         _characterController.SimpleMove(movementDir * magnitude);
 
